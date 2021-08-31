@@ -6,7 +6,7 @@
 
 > [ Server ](#server)
 
-> [ Android App Clients ](#client)
+> [ Android App Client ](#client)
 
 > [ Technical Details ](#tech)
 
@@ -22,18 +22,18 @@ Securing the communication channel is achieved via excecuting the 'Diffie Hellma
 
 
 
-<a name="AERVER"></a>
+<a name="SERVER"></a>
 ## Server
 
 The server program utilizes concurrency programing allowing it to handle multiple clients. It serves as an EchoServer - sending each client the message it 
 recieved.
 
-In addition to the server-client communication, the server cocurrently maintains two logs in the form of txt files - 
+In addition to the server-client communication, the server cocurrently maintains two logs in the form of txt files - 'userslog', which records
 
 
 
 <a name="client"></a>
-## Android App Users
+## Android App Client
 
 
 <a name="tech"></a>
