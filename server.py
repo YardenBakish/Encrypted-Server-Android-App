@@ -12,13 +12,13 @@ from Crypto import Random
 from Crypto.Cipher import AES
 import pyDHE
 
-import binascii, os
+
 from Crypto.Hash import SHA256, HMAC
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 from Crypto.Protocol.KDF import PBKDF2
 import base64
-import pymongo
+
 
 # Logging the data by thread
 
@@ -130,15 +130,6 @@ def DH_KeyGenerator(self):
 
     return bobSharedKey
 
-"""#Encryption AES CBC
-block_size = 16
-pad = lambda s: s+(block_size -len(s) % block_size) * chr(block_size - len(s) % block_size)
-unpad = lambda s: s[0:-ord(s[-1:])]
-iv = Random.new().read(AES.block_size) # Random IV
-
-def get_private_key(secret_key, salt):
-    return hashlib.pbkdf2_hmac('SHA256', secret_key.encode(), salt.encode(), 65536, 32)"""
-
 
 # Print by connection and log to database
 def printByConnection(self, action, dataToPrint):
@@ -154,11 +145,6 @@ def decActEnc(self, rawDataFromClient, secretKey, method):
     encDataToClient = "0"
     if (method == "GCM"):
         decData = decryptString(rawDataFromClient, secretKey)
-        #CBC Encryption resulted in poor performance
-    """elif (method == "CBC"):
-        salt = "anySaltYouCanUseOfOn"
-        decData = decrypt_with_AES(rawDataFromClient, secretKey, salt)"""
-
     if(decData!="0"):
         dataToSend = decData
         if (method=="GCM"):
